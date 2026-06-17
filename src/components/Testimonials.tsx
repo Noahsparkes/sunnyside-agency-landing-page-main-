@@ -2,37 +2,31 @@ const testimonials = [
   {
     name: 'Emily R.',
     quote: 'Sunnyside exceeded our expectations. The team completely transformed our brand presence.',
+    image: '/images/image-emily.jpg',
   },
   {
     name: 'Thomas S.',
     quote: 'The photography and design direction was exactly what our business needed.',
+    image: '/images/image-thomas.jpg',
   },
   {
     name: 'Jennie F.',
     quote: 'Our website now feels premium, polished, and much more engaging to customers.',
+    image: '/images/image-jennie.jpg',
   },
 ];
 
 export default function Testimonials() {
   return (
-    <section style={{ padding: '3rem 2rem' }}>
-      <div style={{ maxWidth: '1000px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Client Testimonials</h2>
-        <div style={{ display: 'grid', gap: '1.5rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
+    <section className="testimonials-section">
+      <div className="testimonials-container">
+        <h2 className="testimonials-title">Client Testimonials</h2>
+        <div className="testimonials-grid">
           {testimonials.map((item) => (
-            <blockquote
-              key={item.name}
-              style={{
-                padding: '1.75rem',
-                borderRadius: '24px',
-                background: '#f8f7fd',
-                border: '1px solid #e5e3ff',
-              }}
-            >
-              <p style={{ margin: '0 0 1rem', fontStyle: 'italic', color: '#333' }}>
-                “{item.quote}”
-              </p>
-              <footer style={{ fontWeight: 700, color: '#111' }}>{item.name}</footer>
+            <blockquote key={item.name} className="testimonial-card">
+              <img src={item.image} alt={item.name} className="testimonial-image" />
+              <p className="testimonial-quote">"{item.quote}"</p>
+              <footer className="testimonial-name">{item.name}</footer>
             </blockquote>
           ))}
         </div>

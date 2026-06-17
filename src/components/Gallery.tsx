@@ -9,7 +9,6 @@ export default function Gallery() {
   return (
     <section style={{ padding: '3rem 2rem', background: '#fff' }}>
       <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-        <h2 style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>Gallery</h2>
         <div style={{ display: 'grid', gap: '1rem', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
           {galleryItems.map((src) => (
             <div key={src} style={{ overflow: 'hidden', borderRadius: '24px' }}>
