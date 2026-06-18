@@ -25,7 +25,7 @@ export default function Testimonials() {
           {testimonials.map((item) => (
             <blockquote key={item.name} className="testimonial-card">
               <img src={item.image} alt={item.name} className="testimonial-image" />
-              <p className="testimonial-quote">"{item.quote}"</p>
+              <p className="testimonial-quote">&quot;{item.quote}&quot;</p>
               <footer className="testimonial-name">{item.name}</footer>
             </blockquote>
           ))}
