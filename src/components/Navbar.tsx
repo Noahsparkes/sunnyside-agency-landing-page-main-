@@ -37,6 +37,7 @@ export default function Navbar() {
           <li key={link}>
             <a
               href={`#${link.toLowerCase()}`}
+              className="navbar-link"
               style={{
                 color: '#ffffff',
                 textDecoration: 'none',
