@@ -16,17 +16,13 @@ export default function Navbar() {
         boxSizing: 'border-box',
       }}
     >
-      <div
-        style={{
-          fontSize: '1rem',
-          letterSpacing: '0.25rem',
-          fontWeight: 700,
-          textTransform: 'uppercase',
-          color: '#ffffff',
-        }}
-      >
-        Sunnyside
-      </div>
+     <div>
+        <img
+          src="/images/logo.svg"
+          alt="SunnySide"
+          style={{ height: '40px', width: 'auto', display: 'block' }}
+        />
+        </div>
 
       <ul
         style={{

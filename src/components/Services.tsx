@@ -44,7 +44,16 @@ export default function Services() {
                 <div className="services-card-text-only">
                   <div>
                     <h3>{service.title}</h3>
-                    <p>{service.description}</p>
+                    <p style={{ fontFamily: 'Barlow, Arial, sans-serif', fontWeight: 600, fontSize: '18px' }}>{service.description}</p>
+                    {(service.title === 'Transform your brand' || service.title === 'Stand out to the right audience') && (
+                      <a
+                        href="#"
+                        id={service.title === 'Transform your brand' ? 'learn-more-brand' : 'learn-more-audience'}
+                        className="service-learn-more"
+                      >
+                        Learn more
+                      </a>
+                    )}
                   </div>
                 </div>
               ) : service.variant === 'image-only' ? (
@@ -54,7 +63,7 @@ export default function Services() {
                   <img className="services-card-image services-card-image-stacked" src={service.image} alt={service.title} />
                   <div className="services-card-overlay">
                     <h3>{service.title}</h3>
-                    <p>{service.description}</p>
+                    <p style={{ fontFamily: 'Barlow, Arial, sans-serif', fontWeight: 600, fontSize: '18px' }}>{service.description}</p>
                   </div>
                 </div>
               )}

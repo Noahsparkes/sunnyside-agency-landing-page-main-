@@ -1,5 +1,4 @@
 @import "tailwindcss";
-
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,8 +7,8 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: 'Barlow', Arial, Helvetica, sans-serif;
+  --font-heading: 'Fraunces', serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -23,7 +22,9 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .services-section {
@@ -80,22 +81,32 @@ body {
 .services-card-text-only {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 2rem;
-  text-align: center;
+  text-align: left;
   background: #ffffff;
+}
+
+.services-card-text-only > div {
+  width: 100%;
+  text-align: left;
 }
 
 .services-card-text-only h3 {
   margin: 0 0 1rem;
   font-size: 1.5rem;
   color: #111;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
 }
 
 .services-card-text-only p {
   margin: 0;
   color: #555;
   line-height: 1.8;
+  font-family: 'Barlow', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .services-card-image-only {
@@ -129,24 +140,32 @@ body {
   position: absolute;
   left: 0;
   right: 0;
-  bottom: 0;
-  padding: 1.5rem;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  top: 0;
+  bottom: auto;
+  padding: 30rem 1.5rem 1.25rem;
+  /* background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%); */
   color: #fff;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  align-items: flex-start;
   gap: 0.75rem;
+  min-height: 100%;
 }
 
 .services-card-overlay h3 {
   margin: 0;
   font-size: 1.35rem;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
 }
 
 .services-card-overlay p {
   margin: 0;
   line-height: 1.6;
+  font-family: 'Barlow', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .services-card-body {
@@ -160,12 +179,59 @@ body {
   margin: 0 0 0.85rem;
   font-size: 1.35rem;
   color: #111;
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
 }
 
 .services-card p {
   margin: 0;
   color: #555;
   line-height: 1.75;
+  font-family: 'Barlow', Arial, sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.service-learn-more {
+  display: inline-block;
+  margin-top: 1.25rem;
+  color: #111;
+  text-decoration: none;
+  font-family: 'Barlow', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-bottom: 0.2rem;
+}
+
+.service-learn-more::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 10px;
+  border-radius: 4px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 180ms ease;
+}
+
+#learn-more-brand::after {
+  background: hsl(51, 100%, 49%);
+}
+
+#learn-more-audience::after {
+  background: hsl(7, 99%, 70%);
+}
+
+#learn-more-brand:hover::after,
+#learn-more-brand:focus-visible::after,
+#learn-more-audience:hover::after,
+#learn-more-audience:focus-visible::after {
+  transform: scaleX(1);
 }
 
 @media (max-width: 960px) {
@@ -234,4 +300,77 @@ body {
   font-weight: 700;
   color: #111;
   margin: 0;
+}
+
+/* Footer centering and styles */
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+}
+
+.footer-link {
+  color: hsl(167, 40%, 24%);
+  text-decoration: none;
+  font-weight: 700;
+  transition: color 150ms ease;
+}
+
+.footer-link:hover {
+  color: #fff;
+}
+
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.footer-social-link {
+  display: inline-flex;
+  color: hsl(167, 40%, 24%);
+  transition: color 150ms ease;
+}
+
+.footer-social-link img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  transition: filter 150ms ease;
+}
+
+.footer-social-link:hover {
+  color: #fff;
+}
+
+.footer-social-link:hover img {
+  filter: brightness(0) invert(1);
+}
+
+.footer-logo {
+  display: block;
+  margin: 0 auto 2rem;
+  height: 40px;
+  width: auto;
+}
+
+/* Headings using Fraunces */
+.fraunces,
+.services-card h3,
+.testimonials-title,
+.testimonial-name {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
+}
+
+/* ensure overlay headings also use Fraunces */
+.services-card-overlay h3 {
+  font-family: 'Fraunces', serif;
+  font-weight: 700;
 }
