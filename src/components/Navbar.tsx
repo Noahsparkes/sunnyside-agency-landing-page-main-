@@ -4,47 +4,15 @@ const navLinks = ['About', 'Services', 'Projects', 'Contact'];
 
 export default function Navbar() {
   return (
-    <nav
-      style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        padding: '1.5rem 2rem',
-        maxWidth: '1200px',
-        margin: '0 auto',
-        width: '100%',
-        boxSizing: 'border-box',
-      }}
-    >
-     <div>
-        <img
-          src="/images/logo.svg"
-          alt="SunnySide"
-          style={{ height: '40px', width: 'auto', display: 'block' }}
-        />
-        </div>
+    <nav className="navbar-shell">
+      <a href="#" className="navbar-brand">
+        <img src="/images/logo.svg" alt="SunnySide" />
+      </a>
 
-      <ul
-        style={{
-          display: 'flex',
-          gap: '2rem',
-          listStyle: 'none',
-          margin: 0,
-          padding: 0,
-        }}
-      >
+      <ul className="navbar-links">
         {navLinks.map((link) => (
           <li key={link}>
-            <a
-              href={`#${link.toLowerCase()}`}
-              className="navbar-link"
-              style={{
-                color: '#ffffff',
-                textDecoration: 'none',
-                fontWeight: 600,
-                letterSpacing: '0.08rem',
-              }}
-            >
+            <a href={`#${link.toLowerCase()}`} className="navbar-link">
               {link}
             </a>
           </li>

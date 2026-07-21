@@ -8,16 +8,7 @@ import Footer from '@/components/Footer';
 export default function Home() {
   return (
     <main>
-      <div
-        style={{
-          backgroundImage: 'url(/images/desktop/image-header.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-        }}
-      >
+      <div className="hero-shell">
         <Navbar />
         <Hero />
       </div>
