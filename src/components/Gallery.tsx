@@ -1,18 +1,35 @@
 const galleryItems = [
-  '/images/desktop/image-gallery-milkbottles.jpg',
-  '/images/desktop/image-gallery-orange.jpg',
-  '/images/desktop/image-gallery-cone.jpg',
-  '/images/desktop/image-gallery-sugarcubes.jpg',
+  {
+    desktop: '/images/desktop/image-gallery-milkbottles.jpg',
+    mobile: '/images/mobile/image-gallery-milkbottles.jpg',
+  },
+  {
+    desktop: '/images/desktop/image-gallery-orange.jpg',
+    mobile: '/images/mobile/image-gallery-orange.jpg',
+  },
+  {
+    desktop: '/images/desktop/image-gallery-cone.jpg',
+    mobile: '/images/mobile/image-gallery-cone.jpg',
+  },
+  {
+    desktop: '/images/desktop/image-gallery-sugarcubes.jpg',
+    mobile: '/images/mobile/image-gallery-sugar-cubes.jpg',
+  },
 ];
 
 export default function Gallery() {
   return (
-    <section style={{ padding: 0, background: '#fff' }}>
-      <div style={{ width: '100vw', maxWidth: '100vw', marginLeft: 'calc(50% - 50vw)', marginRight: 'calc(50% - 50vw)' }}>
-        <div style={{ display: 'grid', gap: 0, gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))' }}>
-          {galleryItems.map((src) => (
-            <div key={src} style={{ overflow: 'hidden', borderRadius: 0 }}>
-              <img src={src} alt="Gallery item" style={{ width: '100%', display: 'block', objectFit: 'cover' }} />
+    <section className="gallery-section">
+      <div className="gallery-shell">
+        <div className="gallery-grid">
+          {galleryItems.map((item) => (
+            <div key={item.desktop} className="gallery-card">
+              <picture>
+                <source media="(min-width: 769px)" srcSet={item.desktop} />
+                <source media="(max-width: 768px)" srcSet={item.mobile} />
+                {/* Use mobile image as fallback so small devices get the correct asset when sources are ignored */}
+                <img src={item.mobile} alt="Gallery item" />
+              </picture>
             </div>
           ))}
         </div>
