@@ -308,9 +308,7 @@ body {
 .service-learn-more {
   display: inline-block;
   margin-top: 1.25rem;
-  color: #111;
-  text-decoration: none;
-  font-family: 'Barlow', Arial, sans-serif;
+    margin-bottom: 50px; /* add extra space between text and button */
   font-weight: 700;
   font-size: 16px;
   text-transform: uppercase;
@@ -386,6 +384,66 @@ body {
   display: block;
   object-fit: cover;
 }
+
+/* Mobile: allow service images to be taller to reduce cropping
+   Apply to both image-only and stacked variants and give stacked
+   cards more image area so the overlay text has room */
+@media (max-width: 768px) {
+  .services-card-image-only,
+  .services-card-image-stacked {
+    aspect-ratio: auto;
+    width: 100%;
+    height: auto;
+    min-height: 340px;
+    object-position: center top;
+    object-fit: cover;
+  }
+
+  .services-card.services-card-stacked {
+    grid-template-rows: 80% auto;
+  }
+}
+
+/* Further isolate the Graphic Design and Photography stacked cards
+   so only they become slightly taller on mobile (adds ~20px) */
+@media (max-width: 768px) {
+  .services-card-graphic,
+  .services-card-photography {
+    aspect-ratio: auto; /* allow height to grow */
+    min-height: 300px; /* increased to push overlay lower (~+20px) */
+  }
+
+  .services-card-graphic .services-card-image-stacked,
+  .services-card-photography .services-card-image-stacked {
+    min-height: 360px;
+  }
+
+  .services-card-graphic.services-card-stacked,
+  .services-card-photography.services-card-stacked {
+    grid-template-rows: 96% auto; /* allocate more space to the image so text sits lower */
+  }
+}
+
+/* Reduce overlay bottom padding on those two cards so text sits closer to the card bottom */
+@media (max-width: 768px) {
+  .services-card-graphic .services-card-overlay,
+  .services-card-photography .services-card-overlay {
+    padding: clamp(1rem, 4vw, 2rem) 1.5rem 0; /* remove bottom padding for max lowering */
+
+  }
+}
+
+/* Fix overlay size for the two stacked cards on mobile to a fixed visual height */
+@media (max-width: 768px) {
+  .services-card-graphic .services-card-overlay,
+  .services-card-photography .services-card-overlay {
+    height: 448px; /* target overlay height (reduced by 10px) */
+    inset: auto 0 0 0; /* anchor to bottom */
+    padding: 1.25rem 1.5rem; /* comfortable padding */
+    justify-content: flex-end;
+  }
+}
+
 
 #learn-more-audience::after {
   background: hsl(7, 99%, 70%);
@@ -531,11 +589,20 @@ body {
     padding: 2rem 1.5rem;
   }
 
+  /* Allow images to be taller on mobile to avoid unwanted cropping */
   .services-card-image-only,
   .services-card-image-stacked {
-    aspect-ratio: 1 / 1;
+    aspect-ratio: auto;
     width: 100%;
     height: auto;
+    min-height: 340px; 
+    object-position: center top;
+    object-fit: cover;
+  }
+
+  /* Give stacked cards more image area on mobile */
+  .services-card.services-card-stacked {
+    grid-template-rows: 80% auto;
   }
 
   .services-card-overlay {

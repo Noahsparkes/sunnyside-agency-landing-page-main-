@@ -66,14 +66,28 @@ export default function Services() {
                 </div>
               ) : service.variant === 'image-only' ? (
                 <picture>
+                  <source media="(min-width: 769px)" srcSet={service.image!} />
                   <source media="(max-width: 768px)" srcSet={getMobileImage(service.image!)} />
-                  <img className="services-card-image services-card-image-only" src={service.image} alt={service.title} />
+                  <img
+                    className="services-card-image services-card-image-only"
+                    src={getMobileImage(service.image!)}
+                    srcSet={`${getMobileImage(service.image!)} 375w, ${service.image!} 1200w`}
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    alt={service.title}
+                  />
                 </picture>
               ) : (
                 <div className="services-card-stacked">
                   <picture>
+                    <source media="(min-width: 769px)" srcSet={service.image!} />
                     <source media="(max-width: 768px)" srcSet={getMobileImage(service.image!)} />
-                    <img className="services-card-image services-card-image-stacked" src={service.image} alt={service.title} />
+                    <img
+                      className="services-card-image services-card-image-stacked"
+                      src={getMobileImage(service.image!)}
+                      srcSet={`${getMobileImage(service.image!)} 375w, ${service.image!} 1200w`}
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      alt={service.title}
+                    />
                   </picture>
                   <div className="services-card-overlay">
                     <h3>{service.title}</h3>
