@@ -2,7 +2,7 @@
 
 > A pixel-perfect implementation of the [Frontend Mentor – Sunnyside Agency Landing Page](https://www.frontendmentor.io/challenges/sunnyside-agency-landing-page-7yVs3B6ef) challenge, built with a modern React/Next.js stack.
 
-![Design preview](../preview.jpg)
+![Design preview](/preview.jpg)
 
 ---
 
