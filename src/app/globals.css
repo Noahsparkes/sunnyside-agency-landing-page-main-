@@ -18,6 +18,13 @@
   }
 }
 
+/* Smooth scrolling for anchor navigation.
+   Browsers automatically disable this animation for users who
+   have enabled "Reduce Motion" in their OS accessibility settings. */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--background);
